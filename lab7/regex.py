@@ -3,7 +3,7 @@ import re
 with open("row.txt", "r", encoding="utf-8") as file:
     text = file.read()
 
-pattern = r'а[б]*'
+pattern = r'аб*'
 matches = re.findall(pattern, text)
 print(matches)
 
@@ -37,14 +37,12 @@ result = replacing(text)
 print(result)
 
 #TASK7
-def snake_to_camel(test):
-    pattern = r'_{а-я}'
-    pattern2 = r'_'
-    camel = re.sub(pattern, lambda x: x.group(1).upper(), test)
-    camel1 = camel.replace('_', '')
+def snake_to_camel(text):
+    camel = re.split('_+', text)
+    camel1 = camel[0] + ''.join(map(lambda x: x.title(), camel[1:]))
     return camel1
 
-test = "Поменяй_Этот_Текст_На_Другой"
+test = "Поменяй_этот_текст_на_другой"
 result = snake_to_camel(test)
 print(result)
 
@@ -70,9 +68,9 @@ print(result)
 #TASK10
 def camel_to_snake(test):
     string = re.sub(r'([а-я0-9])([А-Я])', r'\1_\2', test)
-    return string
+    sting = string.capitalize()
+    return sting
 
 test = "ПоменяйЭтотТекстНаЗмеиныйТекст"
 result = camel_to_snake(test)
 print(result)
-
