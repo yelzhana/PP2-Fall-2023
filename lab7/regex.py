@@ -8,7 +8,7 @@ matches = re.findall(pattern, text)
 print(matches)
 
 #TASK2
-pattern1 = r'а.{2}б'
+pattern1 = r'а.{2-3}б'
 matches1 = re.findall(pattern1, text)
 print(matches1)
 
