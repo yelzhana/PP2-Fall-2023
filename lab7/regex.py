@@ -23,7 +23,7 @@ matches4 = re.findall(pattern4, text)
 print(matches4)
 
 #TASK5
-pattern5 = r'а.*б/'
+pattern5 = r'а.*б'
 matches5 = re.findall(pattern5, text)
 print(matches5)
 
@@ -47,14 +47,9 @@ result = snake_to_camel(test)
 print(result)
 
 #TASK8
-def spliting(test):
-    split_strings = re.split(r'([А-Я])', test)
-    split_strings = [split_strings[i] + split_strings[i+1] if i < len(split_strings) - 1 and split_strings[i+1].isupper() else split_strings[i] for i in range(0, len(split_strings), 2)]
-    return split_strings
-
-test = "МеняЗовутЕлжана"
-result = spliting(test)
-print(result)
+text = "МеняЗовутЕлжана"
+result = re.findall('[А-Я][^А-Я]*', text)
+print(' '.join([str(i) for i in result]))
 
 #TASK9
 def space(test):
